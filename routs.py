@@ -25,7 +25,7 @@ async def json_factura(cabecera: Request, factura: Factura):
     account_sid =''
     auth_token = ''
     client = Client(account_sid, auth_token)
-    msg = '''
+    msg = ''' 
     *FACTURA DE COMPRA*
     *************************************************************************
     *Nombre*: {Nombre_Cliente}
