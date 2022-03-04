@@ -22,8 +22,8 @@ async def json_factura(cabecera: Request, factura: Factura):
     if cabecera.headers['Authorization'].split(' ')[1] != getenv('SECRET'):
         raise HTTPException(status_code=400, detail={'error': 'La llave de autenticación no es correcta'})
 
-    account_sid ='ACcbdfa04c546c72666d1a632805129e30'
-    auth_token = '9968c719ac23c92b76f263b875c57599'
+    account_sid =''
+    auth_token = ''
     client = Client(account_sid, auth_token)
     msg = '''
     *FACTURA DE COMPRA*
