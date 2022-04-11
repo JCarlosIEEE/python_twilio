@@ -45,4 +45,9 @@ async def json_factura(cabecera: Request, factura: Factura):
                         )
     return {'respuesta': 'ok', 'status_server':200, 'mensaje': 'ENVIADO'}
 
+@router.post('/prueba')
+async def prueba(mensaje: MensajeTexto):
+    print(mensaje.Mensaje)
+    return {'respuesta': 'ok', 'status_server':200, 'mensaje': 'ENVIADO'}
+
 
