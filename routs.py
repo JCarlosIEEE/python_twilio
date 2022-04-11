@@ -11,7 +11,7 @@ class MensajeTexto(BaseModel) :
     Celular : int
 
 # Envio de mensajes a whatsapp
-@router.post('/factura')
+@router.post('/')
 async def json_factura(cabecera: Request, factura: MensajeTexto):
     print(getenv('SECRET'))
     # Comprobamos que el header contiene los datos de autenticación
