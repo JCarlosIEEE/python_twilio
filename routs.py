@@ -2,7 +2,6 @@ from fastapi import APIRouter
 from pydantic import BaseModel
 from twilio.rest import Client
 from fastapi import HTTPException, Request
-from verificar_url import check_url
 from os import getenv
 
 router = APIRouter()
@@ -41,9 +40,10 @@ async def json_factura(cabecera: Request, factura: MensajeTexto):
                         )
     return {'respuesta': 'ok', 'status_server':200, 'mensaje': 'ENVIADO'}
 
+''''
 @router.post('/prueba')
 async def prueba(mensaje: MensajeTexto):
     print(mensaje.Mensaje)
-    return {'respuesta': 'ok', 'status_server':200, 'mensaje': 'ENVIADO'}
+    return {'respuesta': 'ok', 'status_server':200, 'mensaje': 'ENVIADO'}'''
 
 
