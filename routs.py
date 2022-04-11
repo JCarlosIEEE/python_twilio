@@ -10,8 +10,14 @@ class MensajeTexto(BaseModel) :
     Mensaje : str
     Celular : int
 
+
+# creemos una funcion para mostrar un mensaje de prueba en el navegador
+@router.get("/")
+async def inicio():
+    return {"mensaje": "Bienvenido a la API de Twilio"}
+
 # Envio de mensajes a whatsapp
-@router.post('/')
+@router.post('/factura')
 async def json_factura(cabecera: Request, factura: MensajeTexto):
     print(getenv('SECRET'))
     # Comprobamos que el header contiene los datos de autenticación
