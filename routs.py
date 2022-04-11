@@ -13,7 +13,7 @@ class MensajeTexto(BaseModel) :
 
 # Envio de mensajes a whatsapp
 @router.post('/factura')
-async def json_factura(cabecera: Request, factura: Factura):
+async def json_factura(cabecera: Request, factura: MensajeTexto):
     print(getenv('SECRET'))
     # Comprobamos que el header contiene los datos de autenticación
     if 'Authorization' not in cabecera.headers:
@@ -28,13 +28,9 @@ async def json_factura(cabecera: Request, factura: Factura):
     msg = ''' 
     *FACTURA DE COMPRA*
     *************************************************************************
-    *Nombre*: {Nombre_Cliente}
-    *Fecha*: {Fecha_Creacion}
-    *Ubicacion*: {Ubicacion_Entrega}
-    *Dirección*: {Direccion_Entrega}
+    *Dirección*: {Mensaje}
     *Celular*: {Celular}
-    *Estado*: {Estado_Pedido}
-    *Estado Pago*: {Estado_Pago}
+
     *************************************************************************
     '''.format(**factura.dict())
                 
