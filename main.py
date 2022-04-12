@@ -4,9 +4,10 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from twilio.rest import Client
 #from fastapi import HTTPException, Request
-from os import getenv
+import os
 #from twilio.twiml.messaging_response import Body, Message, Redirect, MessagingResponse
-
+#from boto.s3.connection import S3Connection
+#s3 = S3Connection(os.environ['S3_KEY'], os.environ['S3_SECRET'])
 
 
 app = FastAPI()
@@ -23,8 +24,8 @@ class MensajeTexto(BaseModel) :
 @app.post('/factura')
 async def json_factura(factura: MensajeTexto):
 
-    account_sid ='AC369215d3510e3f069642eff441903bac'
-    auth_token = 'dac5b78957d0031fb2b4dd7f8b9dcb00'
+    account_sid = os.environ.get('account_sid', None)
+    auth_token =  os.environ.get('auth_token', None)
     client = Client(account_sid, auth_token)
     msg = '''
     *FACTURA DE COMPRA*
@@ -40,3 +41,5 @@ async def json_factura(factura: MensajeTexto):
                             to=f'whatsapp:+57{3222441768}'#'+573125599599'
                         )
     return {'respuesta': 'ok', 'status_server':200, 'mensaje': 'ENVIADO'}
+
+
