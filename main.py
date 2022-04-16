@@ -50,7 +50,7 @@ async def json_mensaje(mensaje):
     return {mensaje}'''
 
 @app.route("/mensaje", methods=["GET", "POST"])
-def reply_whatsapp():
+def reply_whatsapp(request: Request):
 
     try:
         num_media = int(Request.values.get("NumMedia"))
