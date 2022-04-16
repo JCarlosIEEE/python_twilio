@@ -53,7 +53,7 @@ async def json_mensaje(mensaje):
 def reply_whatsapp(request: Request):
 
     try:
-        num_media = int(request.NumMedia)
+        num_media = int(request.body.NumMedia)
     except (ValueError, TypeError):
         return "Invalid request: invalid or missing NumMedia parameter", 400
     response = MessagingResponse()
