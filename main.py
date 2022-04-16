@@ -51,7 +51,9 @@ async def json_mensaje(mensaje):
 
 @app.route("/mensaje", methods=["GET", "POST"])
 def reply_whatsapp(request: Request):
-    return MessagingResponse().message("Hola Mundo")
+    response = MessagingResponse()
+    response.message("Thanks for the image. Here's one for you!")
+    return 'bandera'
 '''
     try:
         num_media = int(request.body.NumMedia)
