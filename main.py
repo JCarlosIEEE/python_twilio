@@ -1,8 +1,9 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 
 #from fastapi import APIRouter
 from pydantic import BaseModel
 from twilio.rest import Client
+from twilio.twiml.messaging_response import MessagingResponse
 #from fastapi import HTTPException, Request
 import os
 #from twilio.twiml.messaging_response import Body, Message, Redirect, MessagingResponse
@@ -48,5 +49,25 @@ async def json_mensaje(mensaje):
     return {mensaje}
 
 
+@app.route("/whatsapp", methods=["GET", "POST"])
+def reply_whatsapp():
+    resp = MessagingResponse()
+    resp.message(Request.form['Body'])
+    return str(resp)
+
+    '''}
+    try:
+        num_media = int(Request.values.get("NumMedia"))
+    except (ValueError, TypeError):
+        return "Invalid request: invalid or missing NumMedia parameter", 400
+    response = MessagingResponse()
+    if not num_media:
+        msg = response.message("Send us an image!")
+    else:
+        msg = response.message("Thanks for the image. Here's one for you!")
+        #msg.media(GOOD_BOY_URL)
+    return str(response)'''
 
 
+if __name__ == "__main__":
+    app.run()
