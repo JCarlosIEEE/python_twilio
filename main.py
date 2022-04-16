@@ -51,7 +51,8 @@ async def json_mensaje(mensaje):
 
 @app.route("/mensaje", methods=["GET", "POST"])
 def reply_whatsapp(request: Request):
-
+    return MessagingResponse().message("Hola Mundo")
+'''
     try:
         num_media = int(request.body.NumMedia)
     except (ValueError, TypeError):
@@ -63,7 +64,7 @@ def reply_whatsapp(request: Request):
         msg = response.message("Thanks for the image. Here's one for you!")
         #msg.media(GOOD_BOY_URL)
     return str(response)
-
+'''
 
 if __name__ == "__main__":
     app.run()
