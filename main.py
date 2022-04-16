@@ -50,7 +50,7 @@ async def json_mensaje(mensaje):
     return {mensaje}'''
 
 @app.route("/mensaje", methods=["GET", "POST"])
-def reply_whatsapp(request: Request):
+def reply_whatsapp():
     response = MessagingResponse()
     response.message("Thanks for the image. Here's one for you!")
     return str(response)
