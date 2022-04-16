@@ -49,7 +49,7 @@ async def json_factura(factura: MensajeTexto):
 async def json_mensaje(mensaje):
     return {mensaje}'''
 
-@app.route("/whatsapp", methods=["GET", "POST"])
+@app.route("/mensaje", methods=["GET", "POST"])
 def reply_whatsapp():
 
     try:
