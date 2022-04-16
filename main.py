@@ -13,7 +13,7 @@ import os
 
 app = FastAPI()
 
-@app.get("/inicio")
+@app.get("/")
 async def root():
     return "Hello World!"
 
@@ -44,12 +44,13 @@ async def json_factura(factura: MensajeTexto):
     return {'respuesta': 'ok', 'status_server':200, 'mensaje': 'ENVIADO'}
 
 # Hacemos un endpoint para recibir los mensajes de whatsapp
+'''
 @app.post('/mensaje')
 async def json_mensaje(mensaje):
-    return {mensaje}
+    return {mensaje}'''
 
 
-@app.route("/whatsapp", methods=["GET", "POST"])
+@app.route("/mensaje", methods=["GET", "POST"])
 def reply_whatsapp():
     resp = MessagingResponse()
     resp.message(Request.form['Body'])
