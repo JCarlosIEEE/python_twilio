@@ -53,7 +53,7 @@ async def json_mensaje(mensaje):
 def reply_whatsapp(request: Request):
     response = MessagingResponse()
     response.message("Thanks for the image. Here's one for you!")
-    #return 'bandera'
+    return str(response)
 '''
     try:
         num_media = int(request.body.NumMedia)
