@@ -44,8 +44,8 @@ async def json_factura(factura: MensajeTexto):
 
 # Hacemos un endpoint para recibir los mensajes de whatsapp
 @app.post('/mensaje')
-async def json_mensaje(factura: MensajeTexto):
-    return {f'respuesta': 'ok', 'status_server':200, 'mensaje': {factura.Celular}}
+async def json_mensaje(mensaje):
+    return {mensaje}
 
 
 
