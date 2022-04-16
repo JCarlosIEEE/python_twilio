@@ -51,7 +51,7 @@ async def json_mensaje(mensaje):
 
 
 @app.route("/mensaje", methods=["GET", "POST"])
-def reply_whatsapp():
+def reply_whatsapp(request: Request):
     resp = MessagingResponse()
     resp.message(Request.form['Body'])
     return str(resp)
