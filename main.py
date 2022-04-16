@@ -49,14 +49,9 @@ async def json_factura(factura: MensajeTexto):
 async def json_mensaje(mensaje):
     return {mensaje}'''
 
+@app.route("/whatsapp", methods=["GET", "POST"])
+def reply_whatsapp():
 
-@app.route("/mensaje", methods=["GET", "POST"])
-def reply_whatsapp(request: Request):
-    resp = MessagingResponse()
-    resp.message(Request.body)
-    return str(resp)
-
-    '''}
     try:
         num_media = int(Request.values.get("NumMedia"))
     except (ValueError, TypeError):
@@ -67,7 +62,7 @@ def reply_whatsapp(request: Request):
     else:
         msg = response.message("Thanks for the image. Here's one for you!")
         #msg.media(GOOD_BOY_URL)
-    return str(response)'''
+    return str(response)
 
 
 if __name__ == "__main__":
